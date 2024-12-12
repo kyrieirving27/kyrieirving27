@@ -1,0 +1,222 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #ffffff); /* Градиентный фон */
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: darkorange;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Тень текста */
+}
+
+h1::first-letter {
+    text-transform: capitalize; /* Делаем первую букву заглавной */
+    font-size: 2em; /* Увеличиваем размер первой буквы */
+}
+
+ /* Каскадность: базовый стиль заголовков */
+ h1, h2, h3, h4, h5, h6 {
+    color: darkred;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+/* Каскадность: добавляем стиль для h1 */
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Специфичность: изменяем первую букву только для h1 */
+h1::first-letter {
+    text-transform: capitalize;
+    font-size: 2em;
+}
+
+/* Общие стили для параграфов */
+p {
+    color: darkblue;
+}
+
+/* Переопределение стиля через каскадность для блока с классом .info-block */
+.info-block p {
+    color: darkgreen; /* Переопределение цвета через каскадность */
+}
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: purple;
+}
+
+h2, h3, h4, h5, h6 {
+    color: darkred;
+    margin-top: 20px; /* Расстояние до предыдущего элемента */
+    padding: 10px;
+    border-bottom: 2px solid darkred; /* Линия под заголовком */
+}
+
+.highlight {
+    background-color: yellow;
+    font-style: italic;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.custom-text {
+    font-family: "Courier New", Courier, monospace;
+    color: darkblue;
+    font-style: italic;
+}
+
+.info-block {
+    border: 2px solid darkgreen;
+    border-radius: 10px; /* Закругление углов */
+    padding: 15px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень блока */
+}
+
+.nav-links {
+    margin-bottom: 20px;
+    display: flex; /* Используем Flexbox для навигации */
+    justify-content: center; /* Центрируем навигацию */
+}
+
+.nav-links a {
+    margin: 0 10px; /* Убираем правый отступ */
+    color: blue;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+a[href^="https"] { 
+color: green;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+    background-color: rgba(0, 123, 255, 0.2);
+}
+
+.nav-links a:visited {
+    color: purple; /* Цвет посещенных ссылок */
+}
+
+.info-block ul {
+    list-style-type: circle; /* Круглые маркеры */
+    padding-left: 20px; /* Отступ слева */
+}
+
+.info-block ol {
+    padding-left: 20px; /* Отступ слева для упорядоченных списков */
+}
+
+img { 
+    float: right; /* Обтекание изображения */
+    margin-left: 20px;
+    border-radius: 10px; /* Закругление углов изображения */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+figure {
+    display: inline-block; 
+    text-align: center;
+}
+
+figcaption {
+    font-style: italic;
+    color: #555;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    border: 3px solid black; /* Жирная граница таблицы */
+}
+
+table th, table td {
+    border: 3px solid black; /* Жирные границы ячеек */
+    padding: 8px;
+    text-align: center; /* Центрирование текста */
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Цвет для четных строк */
+}
+
+table tr:nth-child(odd) {
+    background-color: #ffffff; /* Цвет для нечетных строк */
+}
+
+table th {
+    background-color: darkgreen;
+    color: white;
+    text-transform: uppercase;
+}
+
+.footer {
+    margin-top: 30px;
+    text-align: center;
+    font-style: italic;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-around; /* Распределение элементов */
+    align-items: center; /* Вертикальное выравнивание */
+    flex-wrap: wrap; /* Позволяет переносить элементы */
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.flex-item {
+    border: 1px solid #ccc; /* Граница элемента */
+    border-radius: 5px; /* Закругление углов */
+    padding: 10px; /* Отступ внутри элемента */
+    margin: 10px; /* Отступ между элементами */
+    flex-basis: 30%; /* Ширина элемента */
+    text-align: center; /* Центрирование текста */
+}
+
+
+/* Flexbox for centering content */
+.flex-container {
+    display: flex;
+    justify-content: space-around; /* Распределение элементов */
+    align-items: center; /* Вертикальное выравнивание */
+    flex-wrap: wrap; /* Позволяет переносить элементы */
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.flex-item {
+    border: 1px solid #ccc; /* Граница элемента */
+    border-radius: 5px; /* Закругление углов */
+    padding: 10px; /* Отступ внутри элемента */
+    margin: 10px; /* Отступ между элементами */
+    flex-basis: 30%; /* Ширина элемента */
+    text-align: center; /* Центрирование текста */
+}
+
+/* Новый стиль для секции "Позиции" */
+.position-section {
+position: sticky;
+top: 10px;
+margin-top: 30px;
+padding: 20px;
+border: 2px dashed darkblue; /* Пунктирная граница */
+border-radius: 10px; /* Закругление углов */
+background-color: #e8f4fa; /* Светлый фон */
+
+}
+
+

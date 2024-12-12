@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Баскетбол</title>
+    <link rel="stylesheet" href="123.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+</head>
+<style>
+    /* Стили для темной темы */
+    body.dark-theme {
+        background-color: #121212;
+        color: #ffffff;
+    }
+
+    /* Стили для лучших игроков */
+    .top-player {
+        font-weight: bold;
+        color: green;
+    }
+</style>
+<body>
+    <!-- Навигация -->
+    <nav class="nav-links">
+        <a href="#history">История</a>
+        <a href="#rules">Правила</a>
+        <a href="#shots">Типы бросков</a>
+        <a href="#positions">Позиции</a>
+        <a href="#players">Знаменитые баскетболисты</a>
+        <a href="#table">Таблица статистики</a>
+        <a href="Текстовый документ123.html" target="_blank">Пример тренировки ЛеБрона Джеймса</a>
+    </nav>
+
+    <!-- Vue.js Приложение -->
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <input v-model="newPlayer" placeholder="Добавить игрока">
+        <button @click="addPlayer">Добавить</button>
+        <button @click="toggleStats">{{ showStats ? 'Скрыть статистику' : 'Показать статистику' }}</button>
+        <button id="themeToggle">Сменить цвет</button>
+
+        <ul>
+            <li v-for="player in players" :key="player" :class="{ 'top-player': isTopPlayer(player) }">
+                {{ player }}
+            </li>
+        </ul> 
+
+        
+        
+
+        <div v-if="showStats">
+            <h3>Статистика игроков:</h3>
+            <p v-for="player in players" :key="player">{{ player }} - Средний балл: 25 очков</p>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <section id="history" class="info-block">
+        <h2>История баскетбола</h2>
+        <p>Баскетбол был придуман в 1891 году Джеймсом Нейсмитом, преподавателем физкультуры в колледже города Спрингфилд, США.</p>
+    </section>
+
+    <section id="shots" class="info-block">
+        <h3>Основные типы бросков</h3>
+        <ul>
+            <li>Свободный бросок</li>
+            <li>Двухочковый бросок</li>
+            <li>Трехочковый бросок</li>
+        </ul>
+    </section>
+
+    <section id="positions" class="info-block">
+        <h2>Позиции в баскетболе</h2>
+        <ul>
+            <li>Разыгрывающий защитник</li>
+            <li>Атакующий защитник</li>
+            <li>Малый форвард</li>
+            <li>Тяжелый форвард</li>
+            <li>Центровой</li>
+        </ul>
+    </section>
+
+    <section id="players" class="info-block">
+        <h2>Знаменитые баскетболисты</h2>
+        <p>Майкл Джордан, Леброн Джеймс, Коби Брайант.</p>
+    </section>
+
+    <section id="table" class="info-block">
+        <h2>Таблица статистики игроков</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>Команда</th>
+                    <th>Игры</th>
+                    <th>Очки</th>
+                    <th>Передачи</th>
+                    <th>Подборы</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Леброн Джеймс</td>
+                    <td>Лос-Анджелес Лейкерс</td>
+                    <td>55</td>
+                    <td>1534</td>
+                    <td>301</td>
+                    <td>372</td>
+                </tr>
+                <tr>
+                    <td>Стефен Карри</td>
+                    <td>Голден Стэйт Уорриорз</td>
+                    <td>48</td>
+                    <td>1320</td>
+                    <td>249</td>
+                    <td>229</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Итог:</td>
+                    <td>103</td>
+                    <td>2854</td>
+                    <td>550</td>
+                    <td>601</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Таймер обратного отсчёта -->
+    <div id="countdown-timer">
+        <h3>До следующего матча осталось:</h3>
+        <p>{{ days }} дней, {{ hours }} часов, {{ minutes }} минут, {{ seconds }} секунд</p>
+    </div>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <p>&copy; 2024 Баскетбол. Все права защищены.</p>
+    </footer>
+
+    <!-- Скрипты -->
+    <script>
+        // Vue.js
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: 'Добро пожаловать в мир баскетбола!',
+                    players: ['Майкл Джордан', 'Леброн Джеймс', 'Коби Брайант'],
+                    newPlayer: '',
+                    showStats: true
+                };
+            },
+            methods: {
+                addPlayer() {
+                    if (this.newPlayer.trim()) {
+                        this.players.push(this.newPlayer.trim());
+                        this.newPlayer = '';
+                    }
+                },
+                toggleStats() {
+                    this.showStats = !this.showStats;
+                },
+                isTopPlayer(player) {
+                    return ['Майкл Джордан', 'Леброн Джеймс'].includes(player);
+                }
+            }
+        });
+        app.mount('#app');
+
+        // Таймер обратного отсчёта
+        const timerApp = Vue.createApp({
+            data() {
+                return {
+                    targetDate: new Date('2024-12-25T18:00:00'),
+                    days: 0,
+                    hours: 0,
+                    minutes: 0,
+                    seconds: 0
+                };
+            },
+            mounted() {
+                this.updateTimer();
+                setInterval(this.updateTimer, 1000);
+            },
+            methods: {
+                updateTimer() {
+                    const now = new Date();
+                    const diff = this.targetDate - now;
+
+                    this.days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    this.hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                    this.minutes = Math.floor((diff / (1000 * 60)) % 60);
+                    this.seconds = Math.floor((diff / 1000) % 60);
+                }
+            }
+        });
+        timerApp.mount('#countdown-timer');
+
+        $(document).ready(function () {
+            $('#themeToggle').on('click', function () {
+                // Добавляем или убираем класс dark-theme у <body>
+                $('body').toggleClass('dark-theme');
+            })
+
+            // Анимация таблицы
+            $('tr').hover(
+                function () { $(this).css('background-color', 'lightblue'); },
+                function () { $(this).css('background-color', ''); }
+            );
+        });
+    </script>
+</body>
+</html>
+
+<figure>
+        <img src="55.jpeg" width="500" height="auto" alt="LeBron James and Stephen Curry">
+        <figcaption>Леброн Джеймс и Стефен Карри</figcaption>
+    </figure>
+
+
+
+
+    
+
+    <!-- Новый блок с каскадностью через sticky и переопределение стилей -->
+    <section class="position-section" id="positions">
+        <h2>Позиции в баскетболе</h2>
+        <p>В баскетболе выделяют несколько основных позиций, каждая из которых имеет свои задачи и роли на площадке:</p>
+        <div class="flex-container">
+            <div class="flex-item">
+                <h3>Разыгрывающий защитник</h3>
+                <p>Отвечает за организацию атаки и передачу мяча.</p>
+            </div>
+            <div class="flex-item">
+                <h3>Атакующий защитник</h3>
+                <p>Сфокусирован на забивании очков и дальних бросках.</p>
+            </div>
+            <div class="flex-item">
+                <h3>Малый форвард</h3>
+                <p>Универсальный игрок, способный как защищаться, так и атаковать.</p>
+            </div>
+            <div class="flex-item">
+                <h3>Тяжелый форвард</h3>
+                <p>Играет под кольцом и борется за подборы.</p>
+            </div>
+            <div class="flex-item">
+                <h3>Центровой</h3>
+                <p>Основная роль - защита кольца и борьба за подборы.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Холст для анимации мяча -->
+    <canvas id="basketballCourt" width="400" height="400"></canvas>
+
+    <script src="anim.js"></script>
+
+    <div class="footer">
+        <p>&copy; 2024 Баскетбол. Все права защищены.</p>
+    </div>
+</body>
+</html>

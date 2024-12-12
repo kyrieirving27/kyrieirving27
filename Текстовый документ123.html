@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренировки Леброна Джеймса</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #ffffff);
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: darkorange;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-block {
+            border: 2px solid darkgreen;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .js-output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: darkorange;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Тренировки Леброна Джеймса</h1>
+
+<div class="info-block">
+    <h2>Информация об игроке</h2>
+    <p>Имя: Леброн Джеймс</p>
+    <p>Возраст: 38 лет</p>
+    <p>Рост: 2.06 м</p>
+    <p>Вес: 113 кг</p>
+    <p>Позиция: форвард</p>
+</div>
+
+<div class="info-block">
+    <h2>Рекомендации по тренировкам</h2>
+    <button onclick="showRecommendations()">Показать рекомендации</button>
+    <div id="js-output" class="js-output">
+        Нажмите кнопку, чтобы увидеть рекомендации.
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Баскетбол. Все права защищены.</p>
+</div>
+
+<script src="00.js"></script>
+
+</body>
+</html>
